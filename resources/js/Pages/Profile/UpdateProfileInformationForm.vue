@@ -41,10 +41,20 @@
                 <jet-input-error :message="form.errors.photo" class="mt-2" />
             </div>
 
-            <!-- Name -->
+            <!-- First, second and third names -->
             <div class="col-span-6 sm:col-span-4">
-                <jet-label for="name" value="Name" />
-                <jet-input id="name" type="text" class="mt-1 block w-full" v-model="form.name" autocomplete="name" />
+                <jet-label for="first_name" value="First name" />
+                <jet-input id="first_name" type="text" class="mt-1 block w-full" v-model="form.first_name" autocomplete="first_name" />
+                <jet-input-error :message="form.errors.name" class="mt-2" />
+            </div>
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="second_name" value="Second name" />
+                <jet-input id="second_name" type="text" class="mt-1 block w-full" v-model="form.second_name" autocomplete="second_name" />
+                <jet-input-error :message="form.errors.name" class="mt-2" />
+            </div>
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label for="third_name" value="Third name" />
+                <jet-input id="third_name" type="text" class="mt-1 block w-full" v-model="form.third_name" autocomplete="third_name" />
                 <jet-input-error :message="form.errors.name" class="mt-2" />
             </div>
 
@@ -94,7 +104,9 @@
             return {
                 form: this.$inertia.form({
                     _method: 'PUT',
-                    name: this.user.name,
+                    first_name: this.user.first_name,
+                    second_name: this.user.second_name,
+                    third_name: this.user.third_name,
                     email: this.user.email,
                     photo: null,
                 }),

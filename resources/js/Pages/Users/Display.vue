@@ -41,6 +41,11 @@
                             <jet-label value="Email" />
                             <jet-input :value="user.email" type="text" class="mt-1 block w-full" disabled />
                         </div>
+
+                        <div class="col-span-6 sm:col-span-4">
+                            <jet-label value="Phone number" />
+                            <jet-input :value="user.phone_number" type="tel" class="mt-1 block w-full" disabled />
+                        </div>
                     </template>
                 </jet-form-section>
             </div>

@@ -16,7 +16,10 @@ class SearchUserController extends Controller
         $users = DB::table('users');
 
         if ($search)
-            $users = $users->where('first_name', 'like', "%$search%");
+            $users = $users
+                ->where('first_name', 'like', "%$search%")
+                ->orWhere('second_name', 'like', "%$search%")
+                ->orWhere('third_name', 'like', "%$search%");
         
         $users = $users->limit(10)->get($fields);
         return Inertia::render('SearchUsers', [

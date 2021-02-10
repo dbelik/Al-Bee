@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
 use \App\Http\Controllers\SearchUserController;
+use \App\Http\Controllers\GetUserProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Route::get('/', function () {
 });
 
 Route::get('/users', SearchUserController::class)->middleware('admin');
+Route::get('/users/{id}', GetUserProfileController::class)->middleware('admin');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
     return Inertia::render('Dashboard');

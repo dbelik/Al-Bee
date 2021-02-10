@@ -23,7 +23,7 @@
                             <div class="flex items-center">
                                 <div 
                                     class="w-16 h-16 rounded-full mr-5" 
-                                    :style="'background: ' + (user.profile_photo_path ? 'url(' + user.profile_photo_path + ') center no-repeat, ' : '') + 'grey; background-size: cover;'"></div>
+                                    :style="'background: ' + (user.profile_photo_path ? 'url(storage/' + user.profile_photo_path + ') center no-repeat, ' : '') + 'grey; background-size: cover;'"></div>
                                 <span>{{ user.first_name }} {{ user.second_name }}</span>
                             </div>
                             <a :href="'/users/' + user.id">View</a>

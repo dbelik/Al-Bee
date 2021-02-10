@@ -26,7 +26,7 @@ class SearchUserController extends Controller
             }
         
         $users = $users->limit(10)->get($fields);
-        return Inertia::render('SearchUsers', [
+        return Inertia::render('Users/Search', [
             'users' => $users
         ]);
     }

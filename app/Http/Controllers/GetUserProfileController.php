@@ -13,7 +13,7 @@ class GetUserProfileController extends Controller
         $id = $request->route('id');
         $fields = ['first_name', 'second_name', 'third_name', 'profile_photo_path', 'email', 'id', 'phone_number'];
         $user = DB::table('users')->where('id', '=', $id)->first($fields);
-        return Inertia::render('DisplayUser', [
+        return Inertia::render('Users/Display', [
             'user' => $user
         ]);
     }

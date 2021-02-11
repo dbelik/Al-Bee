@@ -19,7 +19,8 @@ class UserController extends Controller
         $fields = ['first_name', 'second_name', 'third_name', 'profile_photo_path', 'email', 'id', 'phone_number', 'ban', 'role_id'];
         $user = DB::table('users')->where('id', '=', $id)->first($fields);
         
-        $role = DB::table('user_role')->where('id', '=', $user->role_id)->first(['role'])->role;
+        $role = DB::table('user_role')->where('id', '=', $user->role_id)->first(['role']);
+        $role = $role ? $role->role : "user";
         $user->role = $role;
         unset($user->role_id);
 

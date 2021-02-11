@@ -32,6 +32,10 @@ class User extends Authenticatable
         'phone_number',
     ];
 
+    protected $dates = [
+        'ban'
+    ];
+
     /**
      * The attributes that should be hidden for arrays.
      *

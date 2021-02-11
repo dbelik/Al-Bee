@@ -4,8 +4,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Facades\Route;
 use Inertia\Inertia;
 
-use \App\Http\Controllers\SearchUserController;
-use \App\Http\Controllers\GetUserProfileController;
+use \App\Http\Controllers\UserController;
+use \App\Http\Controllers\UsersController;
 
 /*
 |--------------------------------------------------------------------------
@@ -18,6 +18,7 @@ use \App\Http\Controllers\GetUserProfileController;
 |
 */
 
+// Routes for all users.
 Route::get('/', function () {
     return Inertia::render('Welcome', [
         'canLogin' => Route::has('login'),
@@ -27,9 +28,16 @@ Route::get('/', function () {
     ]);
 });
 
-Route::get('/users', SearchUserController::class)->middleware('admin');
-Route::get('/users/{id}', GetUserProfileController::class)->middleware('admin');
+// Routes for admins.
+Route::group(['middleware' => ['auth:sanctum', 'admin']], function () {
+    Route::get('/users', UsersController::class);
+    Route::get('/users/{id}', [UserController::class, 'get']);
+    Route::put('/users/{id}', [UserController::class, 'update'])->name('user.update');
+});
 
-Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
-    return Inertia::render('Dashboard');
-})->name('dashboard');
+// Routes for authenticated users.
+Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
+    Route::get('/dashboard', function () {
+        return Inertia::render('Dashboard');
+    })->name('dashboard');
+});

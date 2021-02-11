@@ -30,8 +30,7 @@
             user: Object
         },
         created() {
-            if (!this.user)
-                window.location.href = "/users";
+            if (!this.user) window.location.href = "/users";
         }
     }
 </script>

@@ -28,16 +28,19 @@ Route::get('/', function () {
     ]);
 });
 
-// Routes for admins.
-Route::group(['middleware' => ['auth:sanctum', 'admin']], function () {
-    Route::get('/users', [UsersController::class, 'get']);
-    Route::get('/users/{id}', [UserController::class, 'get']);
-    Route::put('/users/{id}', [UserController::class, 'update'])->name('user.update');
-});
+// Prevent banned user from using website.
+Route::group(['middleware' => ['auth:sanctum', 'user.allowed']], function () {
+    // Routes for admins.
+    Route::group(['middleware' => ['admin']], function () {
+        Route::get('/users', [UsersController::class, 'get']);
+        Route::get('/users/{id}', [UserController::class, 'get']);
+        Route::put('/users/{id}', [UserController::class, 'update'])->name('user.update');
+    });
 
-// Routes for authenticated users.
-Route::group(['middleware' => ['auth:sanctum', 'verified']], function () {
-    Route::get('/dashboard', function () {
-        return Inertia::render('Dashboard');
-    })->name('dashboard');
+    // Routes for authenticated users.
+    Route::group(['middleware' => ['verified']], function () {
+        Route::get('/dashboard', function () {
+            return Inertia::render('Dashboard');
+        })->name('dashboard');
+    });
 });

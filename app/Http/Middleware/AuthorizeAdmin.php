@@ -19,7 +19,7 @@ class AuthorizeAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        $admin_role_id = DB::table('user_role')->where('role', 'Admin')->first()->id;
+        $admin_role_id = DB::table('user_role')->where('role', 'admin')->first()->id;
         if (\Auth::user()->role_id == $admin_role_id) {
             return $next($request);
           }

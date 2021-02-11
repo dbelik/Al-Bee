@@ -13,8 +13,14 @@ class UserController extends Controller
 {
     public function get(Request $request) {
         $id = $request->route('id');
-        $fields = ['first_name', 'second_name', 'third_name', 'profile_photo_path', 'email', 'id', 'phone_number', 'ban'];
+
+        $fields = ['first_name', 'second_name', 'third_name', 'profile_photo_path', 'email', 'id', 'phone_number', 'ban', 'role_id'];
         $user = DB::table('users')->where('id', '=', $id)->first($fields);
+        
+        $role = DB::table('user_role')->where('id', '=', $user->role_id)->first(['role'])->role;
+        $user->role = $role;
+        unset($user->role_id);
+
         return Inertia::render('Users/Display', [
             'user' => $user
         ]);

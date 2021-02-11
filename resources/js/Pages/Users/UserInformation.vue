@@ -17,6 +17,11 @@
                 </div>
             </div>
 
+            <div class="col-span-6 sm:col-span-4">
+                <jet-label value="Role" />
+                <jet-input :value="user.role" type="text" class="mt-1 block w-full" disabled />
+            </div>
+
             <div v-if="user.ban" class="col-span-6 sm:col-span-4">
                 <jet-label value="Banned until" />
                 <jet-input :value="user.ban" type="text" class="mt-1 block w-full" disabled />

@@ -9,7 +9,7 @@
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             <user-information :user="user" />
         </div>
-        <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+        <div v-if="user.role != 'Admin'" class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
             <ban :user="user" />
         </div>
     </app-layout>

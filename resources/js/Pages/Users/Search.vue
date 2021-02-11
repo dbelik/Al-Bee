@@ -55,7 +55,7 @@
             searchUsers(event) {
                 event.preventDefault();
                 const search = this.search.trim();
-                window.location.href = "users?search=" + search;
+                window.location.href = "/users?search=" + search;
             }
         }
     }

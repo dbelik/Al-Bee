@@ -9,7 +9,7 @@ use Inertia\Inertia;
 
 class UsersController extends Controller
 {
-    public function __invoke(Request $request) {
+    public function get(Request $request) {
         $fields = ['first_name', 'second_name', 'profile_photo_path', 'id'];
 
         $search = $request->query('search');

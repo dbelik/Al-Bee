@@ -13,6 +13,8 @@ class UserController extends Controller
 {
     public function get(Request $request) {
         $id = $request->route('id');
+        $user = DB::table('users')->where('id', '=', $id)->first();
+        if ($user == null) abort(404);
 
         $fields = ['first_name', 'second_name', 'third_name', 'profile_photo_path', 'email', 'id', 'phone_number', 'ban', 'role_id'];
         $user = DB::table('users')->where('id', '=', $id)->first($fields);
@@ -25,24 +27,24 @@ class UserController extends Controller
             'user' => $user
         ]);
     }
+
+    private function isAdmin(Request $request, $user) {
+        $admin_role_id = DB::table('user_role')->where('role', '=', "admin")->first(['id'])->id;
+        return $user->role_id == $admin_role_id;
+    }
     
     public function update(Request $request) {
-        if ($this->isAdmin($request)) return redirect()->back()->withErrors(['error' => "You can't update admin!"]);
-
-        if ($request->ban_duration) return $this->updateBan($request);
-        else if ($request->role) return $this->updateRole($request);
-    }
-
-    private function isAdmin(Request $request) {
         $id = $request->route('id');
+        $user = DB::table('users')->where('id', '=', $id)->first();
+        if ($user == null) abort(404);
 
-        $user_role_id = DB::table('users')->where('id', '=', $id)->first(['role_id'])->role_id;
-        $admin_role_id = DB::table('user_role')->where('role', '=', "admin")->first(['id'])->id;
+        if ($this->isAdmin($request, $user)) return redirect()->back()->withErrors(['error' => "You can't update admin!"]);
 
-        return $user_role_id == $admin_role_id;
+        if ($request->ban_duration) return $this->updateBan($request, $user);
+        else if ($request->role) return $this->updateRole($request, $user);
     }
 
-    private function updateBan(Request $request) {
+    private function updateBan(Request $request, $user) {
         $id = $request->route('id');
         $unban = null;
         try {

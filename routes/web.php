@@ -30,7 +30,7 @@ Route::get('/', function () {
 
 // Routes for admins.
 Route::group(['middleware' => ['auth:sanctum', 'admin']], function () {
-    Route::get('/users', UsersController::class);
+    Route::get('/users', [UsersController::class, 'get']);
     Route::get('/users/{id}', [UserController::class, 'get']);
     Route::put('/users/{id}', [UserController::class, 'update'])->name('user.update');
 });

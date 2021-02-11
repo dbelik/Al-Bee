@@ -22,6 +22,14 @@ class UserController extends Controller
     
     public function update(Request $request) {
         $id = $request->route('id');
+
+        $user_role_id = DB::table('users')->where('id', '=', $id)->first(['role_id'])->role_id;
+        $admin_role_id = DB::table('user_role')->where('role', '=', "Admin")->first(['id'])->id;
+
+        if ($user_role_id == $admin_role_id) {
+            return redirect()->back()->withErrors(['ban_duration' => "You can't ban admin!"]);
+        }
+
         $unban = null;
         try {
             $unban = Carbon::parse($request->ban_duration);   

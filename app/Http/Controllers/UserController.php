@@ -22,7 +22,12 @@ class UserController extends Controller
     
     public function update(Request $request) {
         $id = $request->route('id');
-        $unban = Carbon::parse($request->ban_duration);
+        $unban = null;
+        try {
+            $unban = Carbon::parse($request->ban_duration);   
+        } catch (\Exception $error) {
+            return redirect()->back()->withErrors(['ban_duration' => "Can't read date!"]);
+        }
         $user = DB::table('users')->where('id', '=', $id)->update(['ban' => $unban]);
         return redirect()->back();
     }

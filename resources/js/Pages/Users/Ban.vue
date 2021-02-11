@@ -10,7 +10,7 @@
 
         <template #form>
             <div class="col-span-6 sm:col-span-4">
-                <jet-label for="ban_duration" value="Unban this user" />
+                <jet-label for="ban_duration" value="Ban this user for" />
                 <jet-input id="ban_duration" type="text" class="mt-1 block w-full" v-model="form.ban_duration" placeholder="1 Day..." />
                 <jet-input-error :message="form.errors.ban_duration" class="mt-2" />
             </div>
@@ -49,7 +49,7 @@
         data() {
             return {
                 form: this.$inertia.form({
-                    ban_duration: null,
+                    ban_duration: '',
                 }),
             }
         },
@@ -62,7 +62,7 @@
             banUser() {
                 this.form.put(route('user.update', this.user.id), {
                     errorBag: 'banUser',
-                    preserveScroll: true
+                    preserveScroll: true,
                 })
             }
         },

@@ -1,8 +1,6 @@
 <template>
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
+    <content-container style="background: url('/imgs/login/wave.svg') bottom left repeat-x">
+        <h2>Get started</h2>
 
         <jet-validation-errors class="mb-4" />
 
@@ -13,32 +11,31 @@
         <form @submit.prevent="submit">
             <div>
                 <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+                <default-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
             </div>
 
             <div class="mt-4">
                 <jet-label for="password" value="Password" />
-                <jet-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+                <default-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+            </div>
+
+            <div class="flex items-center justify-end mt-8">
+                <primary-button class="mr-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Log in
+                </primary-button>
+
+                <secondary-link class="mx-8" :href="route('register')">
+                    Sign up
+                </secondary-link>
             </div>
 
             <div class="block mt-4">
-                <label class="flex items-center">
-                    <jet-checkbox name="remember" v-model="form.remember" />
-                    <span class="ml-2 text-sm text-gray-600">Remember me</span>
-                </label>
-            </div>
-
-            <div class="flex items-center justify-end mt-4">
                 <inertia-link v-if="canResetPassword" :href="route('password.request')" class="underline text-sm text-gray-600 hover:text-gray-900">
                     Forgot your password?
                 </inertia-link>
-
-                <jet-button class="ml-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Login
-                </jet-button>
             </div>
         </form>
-    </jet-authentication-card>
+    </content-container>
 </template>
 
 <script>
@@ -49,6 +46,11 @@
     import JetCheckbox from '@/Jetstream/Checkbox'
     import JetLabel from '@/Jetstream/Label'
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
+    
+    import ContentContainer from '@/Components/Containers/Content'
+    import DefaultInput from '@/Components/Inputs/Default'
+    import PrimaryButton from '@/Components/Buttons/Primary'
+    import SecondaryLink from '@/Components/Links/Secondary'
 
     export default {
         components: {
@@ -58,7 +60,12 @@
             JetInput,
             JetCheckbox,
             JetLabel,
-            JetValidationErrors
+            JetValidationErrors,
+
+            ContentContainer,
+            DefaultInput,
+            PrimaryButton,
+            SecondaryLink
         },
 
         props: {

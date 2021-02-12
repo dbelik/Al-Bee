@@ -2,11 +2,32 @@
 @import 'tailwindcss/components';
 @import 'tailwindcss/utilities';
 
-input, input:hover, input:focus {
-    border: none !important;
-    outline: none !important;
+*::selection {
+    background: theme("backgroundColor.primary");
+    color: theme("textColor.secondary");
 }
+
+* {
+    color: theme('colors.white');
+}
+
+body {
+    background-color: theme('backgroundColor.dark-blue-900');
+}
+
+h1, h2 { margin-bottom: theme("margin.6"); }
+h1 { font-size: theme('fontSize.6xl'); }
+h2 { font-size: theme('fontSize.5xl'); }
 
 select {
     cursor: pointer;
+}
+
+input:focus, a {
+    outline: none !important;
+    --tw-ring-color: none !important;
+}
+
+input:focus {
+    border-color: white !important;
 }

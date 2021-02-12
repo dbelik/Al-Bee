@@ -12,6 +12,12 @@
 
         <!-- Styles -->
         <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+        
+        <!-- Tab color -->
+        <meta name="theme-color" content="#0F133C">
+
+        <!-- Icons -->
+        <link rel="icon" href="/imgs/anb.svg">
 
         <!-- Scripts -->
         @routes

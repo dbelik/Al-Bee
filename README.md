@@ -1,5 +1,5 @@
-# Alabi
-Alabi is a user management panel.
+# Al&Bee
+Al&Bee is a user management panel.
 
 ## Usage
 Run project using two commands:

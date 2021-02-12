@@ -53,6 +53,10 @@
     import SecondaryLink from '@/Components/Links/Secondary'
 
     export default {
+        metaInfo: {
+            title: 'Al&Bee - Log in'
+        },
+
         components: {
             JetAuthenticationCard,
             JetAuthenticationCardLogo,
@@ -65,7 +69,7 @@
             ContentContainer,
             DefaultInput,
             PrimaryButton,
-            SecondaryLink
+            SecondaryLink,
         },
 
         props: {

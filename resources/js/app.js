@@ -4,10 +4,14 @@ require('./bootstrap');
 import Vue from 'vue';
 import { App as InertiaApp, plugin as InertiaPlugin } from '@inertiajs/inertia-vue';
 import PortalVue from 'portal-vue';
+import VueMeta from 'vue-meta';
 
 Vue.mixin({ methods: { route } });
 Vue.use(InertiaPlugin);
 Vue.use(PortalVue);
+Vue.use(VueMeta, {
+    refreshOnceOnNavigation: true
+});
 
 const app = document.getElementById('app');
 

@@ -14,6 +14,7 @@ module.exports = {
             primary: "#FF855C",
         }),
         fontSize: {
+            '4xl': '1.75rem',
             '5xl': '2.3rem',
             '6xl': '4rem'
         },

@@ -1,5 +1,5 @@
 <template>
-    <content-container style="background: url('/imgs/login/wave.svg') bottom left repeat-x">
+    <content-container>
         <h2>Get started</h2>
 
         <jet-validation-errors class="mb-4" />

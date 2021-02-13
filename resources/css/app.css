@@ -24,9 +24,10 @@ body {
     background-color: theme('backgroundColor.dark-blue-900');
 }
 
-h1, h2 { margin-bottom: theme("margin.8"); }
+h1, h2, h3 { margin-bottom: theme("margin.8"); }
 h1 { font-size: theme('fontSize.6xl'); }
 h2 { font-size: theme('fontSize.5xl'); }
+h3 { font-size: theme('fontSize.4xl'); }
 
 select {
     cursor: pointer;

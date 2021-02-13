@@ -1,12 +1,7 @@
 <template>
-    <jet-authentication-card>
-        <template #logo>
-            <jet-authentication-card-logo />
-        </template>
-
-        <div class="mb-4 text-sm text-gray-600">
-            Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.
-        </div>
+    <content-container>
+        <h2>Forgot your password?</h2>
+        <h3>We will email you a password reset link!</h3>
 
         <div v-if="status" class="mb-4 font-medium text-sm text-green-600">
             {{ status }}
@@ -17,16 +12,16 @@
         <form @submit.prevent="submit">
             <div>
                 <jet-label for="email" value="Email" />
-                <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+                <default-input id="email" type="email" class="mt-1" v-model="form.email" required autofocus />
             </div>
 
-            <div class="flex items-center justify-end mt-4">
-                <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                    Email Password Reset Link
-                </jet-button>
+            <div class="flex items-center justify-center mt-4">
+                <primary-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    Reset password
+                </primary-button>
             </div>
         </form>
-    </jet-authentication-card>
+    </content-container>
 </template>
 
 <script>
@@ -37,6 +32,10 @@
     import JetLabel from '@/Jetstream/Label'
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
 
+    import ContentContainer from '@/Components/Containers/Content'
+    import DefaultInput from '@/Components/Inputs/Default'
+    import PrimaryButton from '@/Components/Buttons/Primary'
+
     export default {
         components: {
             JetAuthenticationCard,
@@ -44,7 +43,11 @@
             JetButton,
             JetInput,
             JetLabel,
-            JetValidationErrors
+            JetValidationErrors,
+            
+            ContentContainer,
+            DefaultInput,
+            PrimaryButton
         },
 
         props: {

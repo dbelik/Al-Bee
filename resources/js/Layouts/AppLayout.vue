@@ -2,6 +2,9 @@
     <content-container>
         <div class="w-full h-full flex justify-between items-center">
             <navbar />
+            <div class="w-full h-full px-12 overflow-auto">
+                <slot />
+            </div>
         </div>
     </content-container>
 </template>

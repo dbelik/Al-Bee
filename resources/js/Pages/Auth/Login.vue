@@ -11,12 +11,12 @@
         <form @submit.prevent="submit">
             <div>
                 <jet-label for="email" value="Email" />
-                <default-input id="email" type="email" class="mt-1 block" v-model="form.email" required autofocus />
+                <jet-input id="email" type="email" class="mt-1 block" v-model="form.email" required autofocus />
             </div>
 
             <div class="mt-4">
                 <jet-label for="password" value="Password" />
-                <default-input id="password" type="password" class="mt-1 block" v-model="form.password" required autocomplete="current-password" />
+                <jet-input id="password" type="password" class="mt-1 block" v-model="form.password" required autocomplete="current-password" />
             </div>
 
             <div class="flex items-center justify-center mt-12">
@@ -48,7 +48,6 @@
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
     
     import ContentContainer from '@/Components/Containers/Content'
-    import DefaultInput from '@/Components/Inputs/Default'
     import PrimaryButton from '@/Components/Buttons/Primary'
     import SecondaryLink from '@/Components/Links/Secondary'
 
@@ -67,7 +66,6 @@
             JetValidationErrors,
 
             ContentContainer,
-            DefaultInput,
             PrimaryButton,
             SecondaryLink,
         },

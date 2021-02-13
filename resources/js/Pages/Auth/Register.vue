@@ -7,32 +7,32 @@
         <form @submit.prevent="submit">
             <div>
                 <jet-label for="first_name" value="First name" />
-                <default-input id="first_name" type="text" class="mt-1 block" v-model="form.first_name" required autofocus autocomplete="first_name" />
+                <jet-input id="first_name" type="text" class="mt-1 block" v-model="form.first_name" required autofocus autocomplete="first_name" />
             </div>
 
             <div class="mt-4">
                 <jet-label for="second_name" value="Second name" />
-                <default-input id="second_name" type="text" class="mt-1 block" v-model="form.second_name" required autocomplete="second_name" />
+                <jet-input id="second_name" type="text" class="mt-1 block" v-model="form.second_name" required autocomplete="second_name" />
             </div>
 
             <div class="mt-4">
                 <jet-label for="third_name" value="Third name (optional)" />
-                <default-input id="third_name" type="text" class="mt-1 block" v-model="form.third_name" autocomplete="third_name" />
+                <jet-input id="third_name" type="text" class="mt-1 block" v-model="form.third_name" autocomplete="third_name" />
             </div>
 
             <div class="mt-4">
                 <jet-label for="email" value="Email" />
-                <default-input id="email" type="email" class="mt-1 block" v-model="form.email" required />
+                <jet-input id="email" type="email" class="mt-1 block" v-model="form.email" required />
             </div>
 
             <div class="mt-4">
                 <jet-label for="password" value="Password" />
-                <default-input id="password" type="password" class="mt-1 block" v-model="form.password" required autocomplete="new-password" />
+                <jet-input id="password" type="password" class="mt-1 block" v-model="form.password" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4">
                 <jet-label for="password_confirmation" value="Confirm Password" />
-                <default-input id="password_confirmation" type="password" class="mt-1 block" v-model="form.password_confirmation" required autocomplete="new-password" />
+                <jet-input id="password_confirmation" type="password" class="mt-1 block" v-model="form.password_confirmation" required autocomplete="new-password" />
             </div>
 
             <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
@@ -76,7 +76,6 @@
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
     
     import ContentContainer from '@/Components/Containers/Content'
-    import DefaultInput from '@/Components/Inputs/Default'
     import PrimaryButton from '@/Components/Buttons/Primary'
     import SecondaryLink from '@/Components/Links/Secondary'
 
@@ -91,7 +90,6 @@
             JetValidationErrors,
 
             ContentContainer,
-            DefaultInput,
             PrimaryButton,
             SecondaryLink,
         },
@@ -116,6 +114,10 @@
                     onFinish: () => this.form.reset('password', 'password_confirmation'),
                 })
             }
+        },
+
+        metaInfo: {
+            title: "Al&Bee - Register"
         }
     }
 </script>

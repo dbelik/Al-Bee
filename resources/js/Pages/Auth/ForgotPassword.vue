@@ -12,7 +12,7 @@
         <form @submit.prevent="submit">
             <div>
                 <jet-label for="email" value="Email" />
-                <default-input id="email" type="email" class="mt-1" v-model="form.email" required autofocus />
+                <jet-input id="email" type="email" class="mt-1" v-model="form.email" required autofocus />
             </div>
 
             <div class="flex items-center justify-center mt-4">
@@ -33,7 +33,6 @@
     import JetValidationErrors from '@/Jetstream/ValidationErrors'
 
     import ContentContainer from '@/Components/Containers/Content'
-    import DefaultInput from '@/Components/Inputs/Default'
     import PrimaryButton from '@/Components/Buttons/Primary'
 
     export default {
@@ -46,7 +45,6 @@
             JetValidationErrors,
             
             ContentContainer,
-            DefaultInput,
             PrimaryButton
         },
 

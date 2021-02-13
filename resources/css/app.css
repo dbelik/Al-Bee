@@ -7,6 +7,15 @@
     color: theme("textColor.secondary");
 }
 
+*::-webkit-scrollbar {
+    width: theme("width.2");
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: theme("backgroundColor.white");
+    border-radius: theme("borderRadius.full");
+}
+
 * {
     color: theme('colors.white');
 }
@@ -15,7 +24,7 @@ body {
     background-color: theme('backgroundColor.dark-blue-900');
 }
 
-h1, h2 { margin-bottom: theme("margin.6"); }
+h1, h2 { margin-bottom: theme("margin.8"); }
 h1 { font-size: theme('fontSize.6xl'); }
 h2 { font-size: theme('fontSize.5xl'); }
 

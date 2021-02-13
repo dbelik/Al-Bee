@@ -1,5 +1,5 @@
 <template>
-    <content-container style="background: url('/imgs/login/wave.svg') bottom left repeat-x">
+    <content-container>
         <h2>Get started</h2>
 
         <jet-validation-errors class="mb-4" />
@@ -19,7 +19,7 @@
                 <default-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
             </div>
 
-            <div class="flex items-center justify-end mt-8">
+            <div class="flex items-center justify-end mt-12">
                 <primary-button class="mr-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </primary-button>

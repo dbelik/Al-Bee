@@ -40,7 +40,7 @@ module.exports = {
                 'dark-blue-600': "#363571",
                 'primary-interact': "#E2673D"
             },
-            maxHeight: {
+            height: {
                 'content': "740px"
             },
             colors: {

@@ -38,7 +38,8 @@ input {
     border-radius: theme("borderRadius.2xl") !important;
     color: theme("colors.white") !important;
     background: transparent !important;
-    width: max(100%, theme("width.96")) !important;
+    width: theme("width.96") !important;
+    max-width: 100% !important;
 }
 
 input:focus, a {

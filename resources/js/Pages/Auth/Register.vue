@@ -52,7 +52,7 @@
                     Register
                 </primary-button>
 
-                <secondary-link class="mx-8" :href="route('register')">
+                <secondary-link class="mx-8" :href="route('login')">
                     Log in
                 </secondary-link>
             </div>

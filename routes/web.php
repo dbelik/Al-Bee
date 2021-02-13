@@ -6,6 +6,7 @@ use Inertia\Inertia;
 
 use \App\Http\Controllers\UserController;
 use \App\Http\Controllers\UsersController;
+use \App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -38,9 +39,5 @@ Route::group(['middleware' => ['auth:sanctum', 'user.allowed']], function () {
     });
 
     // Routes for authenticated users.
-    Route::group(['middleware' => ['verified']], function () {
-        Route::get('/dashboard', function () {
-            return Inertia::render('Dashboard');
-        })->name('dashboard');
-    });
+    Route::get('/dashboard', [DashboardController::class, 'get'])->name('dashboard');
 });

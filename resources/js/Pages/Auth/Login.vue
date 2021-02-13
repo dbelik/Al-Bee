@@ -1,5 +1,5 @@
 <template>
-    <content-container>
+    <content-container style="background: url('/imgs/login/wave.svg') bottom left repeat-x">
         <h2>Get started</h2>
 
         <jet-validation-errors class="mb-4" />
@@ -11,15 +11,15 @@
         <form @submit.prevent="submit">
             <div>
                 <jet-label for="email" value="Email" />
-                <default-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" required autofocus />
+                <default-input id="email" type="email" class="mt-1 block" v-model="form.email" required autofocus />
             </div>
 
             <div class="mt-4">
                 <jet-label for="password" value="Password" />
-                <default-input id="password" type="password" class="mt-1 block w-full" v-model="form.password" required autocomplete="current-password" />
+                <default-input id="password" type="password" class="mt-1 block" v-model="form.password" required autocomplete="current-password" />
             </div>
 
-            <div class="flex items-center justify-end mt-12">
+            <div class="flex items-center justify-center mt-12">
                 <primary-button class="mr-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </primary-button>

@@ -9,17 +9,15 @@ use Inertia\Inertia;
 
 class UsersController extends Controller
 {
-    private function totalUsers() {
-        return DB::table('users')->count();
-    }
-
     public function get(Request $request) {
         $entriesPerPage = 10;
         $page = $request->query('page') - 1;
+        $page = $page < 0 ? 0 : $page;
         $skip = 0;
         if ($page && $page > 0) $skip = $page * $entriesPerPage;
         
         $search = $request->query('search');
+        $searchQuery = $search;
         $search = explode(" ", $search);
 
         $users = DB::table('users');
@@ -32,13 +30,15 @@ class UsersController extends Controller
                     ->orWhere('third_name', 'like', "%$name%");
             }
         
+        $total = $users->count();
         $fields = ['first_name', 'second_name', 'profile_photo_path', 'id'];
         $users = $users->skip($skip)->limit($entriesPerPage)->get($fields);
         return Inertia::render('Users/Search', [
             'users' => $users,
-            'total' => $this->totalUsers(),
+            'total' => $total,
             'perPage' => $entriesPerPage,
-            'page' => $page
+            'page' => $page,
+            'searchQuery' => $searchQuery
         ]);
     }
 }

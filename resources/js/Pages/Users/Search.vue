@@ -26,10 +26,8 @@
             </div>
         </div>
         
-        <div class="pb-12">
-            <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-                <page-list :total="total" :page="page" :perPage="perPage" :searchQuery="searchQuery" />
-            </div>
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <page-list :total="total" :page="page" :perPage="perPage" :searchQuery="searchQuery" />
         </div>
     </app-layout>
 </template>

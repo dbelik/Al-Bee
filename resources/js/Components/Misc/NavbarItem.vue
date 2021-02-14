@@ -3,12 +3,12 @@
         <slot />
     </p>
     
-    <default-link v-else :href="href" class="flex">
+    <navbar-link v-else :href="href" class="flex">
         <slot />
-    </default-link>
+    </navbar-link>
 </template>
 <script>
-import DefaultLink from '@/Components/Links/Default'
+import NavbarLink from '@/Components/Links/Navbar'
 
 export default {
     props: {
@@ -20,7 +20,7 @@ export default {
         }
     },
     components: {
-        DefaultLink,
+        NavbarLink,
     },
     created() {
         this.pathname = window.location.pathname

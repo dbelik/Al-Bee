@@ -16,12 +16,9 @@
     border-radius: theme("borderRadius.full");
 }
 
-* {
-    color: theme('colors.white');
-}
-
 body {
     background-color: theme('backgroundColor.dark-blue-900');
+    color: theme('colors.white');
 }
 
 h1, h2, h3 { margin-bottom: theme("margin.8"); }
@@ -42,11 +39,11 @@ input {
     max-width: 100% !important;
 }
 
-input:focus, a {
+input:focus, a, select:focus {
     outline: none !important;
     --tw-ring-color: none !important;
 }
 
-input:focus {
+input:focus, select:focus {
     border-color: white !important;
 }

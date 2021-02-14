@@ -17,13 +17,13 @@
         </template>
 
         <template #actions>
-            <jet-action-message :on="form.recentlySuccessful" class="mr-3">
+            <primary-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                Ban
+            </primary-button>
+
+            <jet-action-message :on="form.recentlySuccessful" class="ml-3">
                 Banned.
             </jet-action-message>
-
-            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Ban
-            </jet-button>
         </template>
     </jet-form-section>
 </template>
@@ -36,6 +36,8 @@
     import JetInputError from '@/Jetstream/InputError'
     import JetLabel from '@/Jetstream/Label'
 
+    import PrimaryButton from '@/Components/Buttons/Primary'
+
     export default {
         components: {
             JetActionMessage,
@@ -44,6 +46,7 @@
             JetInput,
             JetInputError,
             JetLabel,
+            PrimaryButton
         },
 
         data() {

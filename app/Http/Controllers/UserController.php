@@ -25,7 +25,8 @@ class UserController extends Controller
         unset($user->role_id);
 
         return Inertia::render('Users/Display', [
-            'user' => $user
+            'searchedUser' => $user,
+            'user' => $request->user()
         ]);
     }
 
@@ -49,7 +50,7 @@ class UserController extends Controller
         $id = $request->route('id');
         $unban = null;
         try {
-            $unban = Carbon::parse($request->ban_duration);   
+            $unban = Carbon::parse($request->ban_duration);
         } catch (\Exception $error) {
             return redirect()->back()->withErrors(['ban_duration' => "Can't read date!"]);
         }

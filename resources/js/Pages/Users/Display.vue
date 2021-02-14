@@ -1,5 +1,5 @@
 <template>
-    <app-layout>
+    <app-layout :user="user">
         <template #header>
             <h2 class="font-semibold text-xl text-gray-800 leading-tight">
                 Profile
@@ -7,13 +7,13 @@
         </template>
 
         <div class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            <user-information :user="user" />
+            <user-information :user="searchedUser" />
         </div>
-        <div v-if="user.role != 'admin'" class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            <ban :user="user" />
+        <div v-if="searchedUser.role != 'admin'" class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            <ban :user="searchedUser" />
         </div>
-        <div v-if="user.role != 'admin'" class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
-            <set-role :user="user" />
+        <div v-if="searchedUser.role != 'admin'" class="max-w-7xl mx-auto py-10 sm:px-6 lg:px-8">
+            <set-role :user="searchedUser" />
         </div>
     </app-layout>
 </template>
@@ -32,6 +32,7 @@
             AppLayout
         },
         props: {
+            searchedUser: Object,
             user: Object
         },
         created() {

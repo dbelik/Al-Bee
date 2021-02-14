@@ -13,7 +13,8 @@
                 <jet-label for="photo" value="Photo" />
 
                 <div class="mt-2">
-                    <img :src="'/storage/' + user.profile_photo_path" :alt="user.first_name" class="rounded-full h-20 w-20 object-cover">
+                    <img v-if="user.profile_photo_path" :src="'/storage/' + user.profile_photo_path" :alt="user.first_name" class="rounded-full h-20 w-20 object-cover">
+                    <div v-else class="rounded-full h-20 w-20" style="background-color: #ebf4ff" />
                 </div>
             </div>
 

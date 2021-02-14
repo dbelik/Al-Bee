@@ -1,10 +1,8 @@
 <template>
     <nav class="bg-dark-blue-700 h-screen xl:h-content flex flex-col items-between justify-between">
         <inertia-link href="#" class="bg-dark-blue-600 pl-16 pr-16 py-16">
-            <svg viewBox="0 0 100 100">
-                <circle cx="50" cy="50" r="50" fill="white">
-                </circle>
-            </svg>
+            <div v-if="user.profile_photo_path" class="w-32 h-32 rounded-full" :style="'background: url(/storage/' + user.profile_photo_path + ') no-repeat center; background-size: cover;'"></div>
+            <div v-else class="w-32 h-32 rounded-full" style="background-color: #ebf4ff"></div>
         </inertia-link>
 
         <ul class="h-full pt-16">
@@ -45,6 +43,9 @@ export default {
     components: {
         DefaultLink,
         ButtonLink
+    },
+    props: {
+        user: Object
     },
     methods: {
         switchToTeam(team) {

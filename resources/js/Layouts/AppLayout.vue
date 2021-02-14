@@ -1,7 +1,7 @@
 <template>
     <content-container>
         <div class="w-full h-full flex justify-between items-center">
-            <navbar />
+            <navbar :user="user" />
             <div class="w-full h-full px-12 overflow-auto">
                 <slot />
             </div>
@@ -17,6 +17,9 @@
         components: {
             ContentContainer,
             Navbar
+        },
+        props: {
+            user: Object
         },
 
         data() {

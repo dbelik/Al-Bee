@@ -9,15 +9,21 @@
 
         <ul class="h-full pt-16">
             <li class="pl-12 pr-20 mb-2">
-                <default-link href="#" class="flex">
+                <default-link href="/user/profile" class="flex">
                     <img src="/imgs/icons/user.svg" class="h-6 mr-4" />
                     Profile
                 </default-link>
             </li>
             <li class="pl-12 pr-20 mb-2">
-                <default-link href="#" class="flex">
+                <default-link href="/dashboard" class="flex">
                     <img src="/imgs/icons/dashboard.svg" class="h-6 mr-4" />
                     Dashboard
+                </default-link>
+            </li>
+            <li class="pl-12 pr-20 mb-2">
+                <default-link href="/users" class="flex">
+                    <img src="/imgs/icons/loupe.svg" class="h-6 mr-4" />
+                    Search
                 </default-link>
             </li>
             <li class="pl-12 pr-24">

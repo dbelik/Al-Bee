@@ -12,6 +12,7 @@ module.exports = {
         backgroundColor: theme => ({
             ...theme('colors'),
             primary: "#FF855C",
+            secondary: "#ffffff",
         }),
         fontSize: {
             '4xl': '1.5rem',
@@ -38,7 +39,11 @@ module.exports = {
                 'dark-blue-800': "#141951",
                 'dark-blue-700': "#2B2A66",
                 'dark-blue-600': "#363571",
-                'primary-interact': "#E2673D"
+                'warning': '#8b070e',
+                
+                'primary-interact': "#E2673D",
+                'secondary-interact': "#bbbbbb",
+                'warning-interact': '#580a12',
             },
             height: {
                 'content': "740px"

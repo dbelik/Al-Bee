@@ -30,9 +30,9 @@
                     </span>
                 </div>
 
-                <jet-secondary-button class="mt-2 mr-2" type="button" @click.native.prevent="selectNewPhoto">
+                <secondary-button class="mt-2 mr-2" type="button" @click.native.prevent="selectNewPhoto">
                     Select A New Photo
-                </jet-secondary-button>
+                </secondary-button>
 
                 <jet-secondary-button type="button" class="mt-2" @click.native.prevent="deletePhoto" v-if="user.profile_photo_path">
                     Remove Photo
@@ -74,13 +74,12 @@
         </template>
 
         <template #actions>
-            <jet-action-message :on="form.recentlySuccessful" class="mr-3">
+            <primary-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                Save
+            </primary-button>
+            <jet-action-message :on="form.recentlySuccessful" class="ml-3">
                 Saved.
             </jet-action-message>
-
-            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
-            </jet-button>
         </template>
     </jet-form-section>
 </template>
@@ -94,6 +93,9 @@
     import JetActionMessage from '@/Jetstream/ActionMessage'
     import JetSecondaryButton from '@/Jetstream/SecondaryButton'
 
+    import PrimaryButton from '@/Components/Buttons/Primary'
+    import SecondaryButton from '@/Components/Buttons/Secondary'
+
     export default {
         components: {
             JetActionMessage,
@@ -103,6 +105,9 @@
             JetInputError,
             JetLabel,
             JetSecondaryButton,
+
+            PrimaryButton,
+            SecondaryButton
         },
 
         props: ['user'],

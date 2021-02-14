@@ -31,7 +31,7 @@
                         </p>
                     </div>
 
-                    <div class="mt-4 dark:p-4 dark:w-56 dark:bg-white" v-html="qrCode">
+                    <div class="mt-4 dark:p-4" v-html="qrCode">
                     </div>
                 </div>
 
@@ -42,7 +42,7 @@
                         </p>
                     </div>
 
-                    <div class="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm bg-gray-100 rounded-lg">
+                    <div class="grid gap-1 max-w-xl mt-4 px-4 py-4 font-mono text-sm rounded-lg">
                         <div v-for="code in recoveryCodes" :key="code">
                             {{ code }}
                         </div>
@@ -53,9 +53,9 @@
             <div class="mt-5">
                 <div v-if="! twoFactorEnabled">
                     <jet-confirms-password @confirmed="enableTwoFactorAuthentication">
-                        <jet-button type="button" :class="{ 'opacity-25': enabling }" :disabled="enabling">
+                        <primary-button type="button" :class="{ 'opacity-25': enabling }" :disabled="enabling">
                             Enable
-                        </jet-button>
+                        </primary-button>
                     </jet-confirms-password>
                 </div>
 
@@ -92,6 +92,8 @@
     import JetConfirmsPassword from '@/Jetstream/ConfirmsPassword'
     import JetDangerButton from '@/Jetstream/DangerButton'
     import JetSecondaryButton from '@/Jetstream/SecondaryButton'
+    
+    import PrimaryButton from '@/Components/Buttons/Primary'
 
     export default {
         components: {
@@ -100,6 +102,8 @@
             JetConfirmsPassword,
             JetDangerButton,
             JetSecondaryButton,
+
+            PrimaryButton
         },
 
         data() {

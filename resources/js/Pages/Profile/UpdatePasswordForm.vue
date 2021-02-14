@@ -29,13 +29,13 @@
         </template>
 
         <template #actions>
-            <jet-action-message :on="form.recentlySuccessful" class="mr-3">
+            <primary-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                Save
+            </primary-button>
+
+            <jet-action-message :on="form.recentlySuccessful" class="ml-3">
                 Saved.
             </jet-action-message>
-
-            <jet-button :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
-                Save
-            </jet-button>
         </template>
     </jet-form-section>
 </template>
@@ -47,6 +47,8 @@
     import JetInput from '@/Jetstream/Input'
     import JetInputError from '@/Jetstream/InputError'
     import JetLabel from '@/Jetstream/Label'
+    
+    import PrimaryButton from '@/Components/Buttons/Primary'
 
     export default {
         components: {
@@ -56,6 +58,7 @@
             JetInput,
             JetInputError,
             JetLabel,
+            PrimaryButton
         },
 
         data() {

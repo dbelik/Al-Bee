@@ -14,9 +14,9 @@
             </div>
 
             <div class="mt-5">
-                <jet-danger-button @click.native="confirmUserDeletion">
+                <warning-button @click.native="confirmUserDeletion">
                     Delete Account
-                </jet-danger-button>
+                </warning-button>
             </div>
 
             <!-- Delete Account Confirmation Modal -->
@@ -39,13 +39,13 @@
                 </template>
 
                 <template #footer>
-                    <jet-secondary-button @click.native="closeModal">
+                    <secondary-button @click.native="closeModal">
                         Nevermind
-                    </jet-secondary-button>
+                    </secondary-button>
 
-                    <jet-danger-button class="ml-2" @click.native="deleteUser" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <warning-button class="ml-2" @click.native="deleteUser" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         Delete Account
-                    </jet-danger-button>
+                    </warning-button>
                 </template>
             </jet-dialog-modal>
         </template>
@@ -60,6 +60,9 @@
     import JetInputError from '@/Jetstream/InputError'
     import JetSecondaryButton from '@/Jetstream/SecondaryButton'
 
+    import WarningButton from '@/Components/Buttons/Warning'
+    import SecondaryButton from '@/Components/Buttons/Secondary'
+
     export default {
         components: {
             JetActionSection,
@@ -68,6 +71,9 @@
             JetInput,
             JetInputError,
             JetSecondaryButton,
+
+            WarningButton,
+            SecondaryButton
         },
 
         data() {

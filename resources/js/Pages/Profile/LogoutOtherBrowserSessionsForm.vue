@@ -44,9 +44,9 @@
             </div>
 
             <div class="flex items-center mt-5">
-                <jet-button @click.native="confirmLogout">
+                <primary-button @click.native="confirmLogout">
                     Logout Other Browser Sessions
-                </jet-button>
+                </primary-button>
 
                 <jet-action-message :on="form.recentlySuccessful" class="ml-3">
                     Done.
@@ -73,13 +73,13 @@
                 </template>
 
                 <template #footer>
-                    <jet-secondary-button @click.native="closeModal">
+                    <secondary-button @click.native="closeModal">
                         Nevermind
-                    </jet-secondary-button>
+                    </secondary-button>
 
-                    <jet-button class="ml-2" @click.native="logoutOtherBrowserSessions" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                    <primary-button class="ml-2" @click.native="logoutOtherBrowserSessions" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         Logout Other Browser Sessions
-                    </jet-button>
+                    </primary-button>
                 </template>
             </jet-dialog-modal>
         </template>
@@ -94,6 +94,9 @@
     import JetInput from '@/Jetstream/Input'
     import JetInputError from '@/Jetstream/InputError'
     import JetSecondaryButton from '@/Jetstream/SecondaryButton'
+    
+    import PrimaryButton from '@/Components/Buttons/Primary'
+    import SecondaryButton from '@/Components/Buttons/Secondary'
 
     export default {
         props: ['sessions'],
@@ -106,6 +109,9 @@
             JetInput,
             JetInputError,
             JetSecondaryButton,
+
+            PrimaryButton,
+            SecondaryButton
         },
 
         data() {

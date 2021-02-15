@@ -24,6 +24,9 @@ class UserController extends Controller
         $user->role = $role;
         unset($user->role_id);
 
+        if (Carbon::parse($user->ban)->lt(Carbon::now())) 
+            $user->ban = null;
+
         return Inertia::render('Users/Display', [
             'searchedUser' => $user,
             'user' => $request->user()

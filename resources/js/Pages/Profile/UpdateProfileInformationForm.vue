@@ -10,7 +10,7 @@
 
         <template #form>
             <!-- Profile Photo -->
-            <div class="col-span-6 sm:col-span-4" v-if="$page.props.jetstream.managesProfilePhotos">
+            <div class="col-span-6" v-if="$page.props.jetstream.managesProfilePhotos">
                 <!-- Profile Photo File Input -->
                 <input type="file" class="hidden"
                             ref="photo"
@@ -42,31 +42,31 @@
             </div>
 
             <!-- First, second and third names -->
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label for="first_name" value="First name" />
                 <jet-input id="first_name" type="text" class="mt-1 block w-full" v-model="form.first_name" autocomplete="first_name" />
                 <jet-input-error :message="form.errors.first_name" class="mt-2" />
             </div>
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label for="second_name" value="Second name" />
                 <jet-input id="second_name" type="text" class="mt-1 block w-full" v-model="form.second_name" autocomplete="second_name" />
                 <jet-input-error :message="form.errors.second_name" class="mt-2" />
             </div>
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label for="third_name" value="Third name" />
                 <jet-input id="third_name" type="text" class="mt-1 block w-full" v-model="form.third_name" autocomplete="third_name" />
                 <jet-input-error :message="form.errors.third_name" class="mt-2" />
             </div>
 
             <!-- Email -->
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label for="email" value="Email" />
                 <jet-input id="email" type="email" class="mt-1 block w-full" v-model="form.email" />
                 <jet-input-error :message="form.errors.email" class="mt-2" />
             </div>
 
             <!-- Phone number -->
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label for="phone_number" value="Phone number" />
                 <jet-input id="phone_number" type="tel" class="mt-1 block w-full" v-model="form.phone_number" />
                 <jet-input-error :message="form.errors.phone_number" class="mt-2" />

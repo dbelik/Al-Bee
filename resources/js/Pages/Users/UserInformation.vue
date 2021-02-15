@@ -9,7 +9,7 @@
         </template>
     
         <template #form>
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label for="photo" value="Photo" />
 
                 <div class="mt-2">
@@ -18,37 +18,37 @@
                 </div>
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label value="Role" />
                 <jet-input :value="user.role" type="text" class="mt-1 block w-full" disabled />
             </div>
 
-            <div v-if="user.ban" class="col-span-6 sm:col-span-4">
+            <div v-if="user.ban" class="col-span-6">
                 <jet-label value="Banned until" />
                 <jet-input :value="user.ban" type="text" class="mt-1 block w-full" disabled />
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label value="First name" />
                 <jet-input :value="user.first_name" type="text" class="mt-1 block w-full" disabled />
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label value="Second name" />
                 <jet-input :value="user.second_name" type="text" class="mt-1 block w-full" disabled />
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label value="Third name" />
                 <jet-input :value="user.third_name" type="text" class="mt-1 block w-full" disabled />
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label value="Email" />
                 <jet-input :value="user.email" type="text" class="mt-1 block w-full" disabled />
             </div>
 
-            <div class="col-span-6 sm:col-span-4">
+            <div class="col-span-6">
                 <jet-label value="Phone number" />
                 <jet-input :value="user.phone_number" type="tel" class="mt-1 block w-full" disabled />
             </div>

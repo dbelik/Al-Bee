@@ -12,4 +12,4 @@ Al&Bee lets you keep track of user records in an easy way. It provides simple-to
 TODO
 
 ## License
-Al&Bee uses Apache License 2.0
+Al&Bee uses [Apache License 2.0](./LICENSE)

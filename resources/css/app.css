@@ -39,6 +39,10 @@ input {
     max-width: 100% !important;
 }
 
+input.w-full {
+    width: 100% !important;
+}
+
 input:focus, a, select:focus {
     outline: none !important;
     --tw-ring-color: none !important;
@@ -46,4 +50,10 @@ input:focus, a, select:focus {
 
 input:focus, select:focus {
     border-color: white !important;
+}
+
+@media (max-width: 480px) {
+    input {
+        width: theme('width.64') !important;
+    }
 }

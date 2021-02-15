@@ -53,5 +53,9 @@
             UpdatePasswordForm,
             UpdateProfileInformationForm,
         },
+
+        metaInfo: {
+            title: "Al&Bee - Profile"
+        }
     }
 </script>

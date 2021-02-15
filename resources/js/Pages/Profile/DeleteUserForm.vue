@@ -88,10 +88,9 @@
 
         methods: {
             confirmUserDeletion() {
-                console.log(this)
                 this.confirmingUserDeletion = true;
 
-                setTimeout(() => this.$refs.password.focus(), 250)
+                // setTimeout(() => this.$refs.password.focus(), 250)
             },
 
             deleteUser() {

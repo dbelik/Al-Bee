@@ -9,18 +9,18 @@
         </div>
 
         <form @submit.prevent="submit">
-            <div>
+            <div class="flex flex-col sm:block">
                 <jet-label for="email" value="Email" />
                 <jet-input id="email" type="email" class="mt-1 block" v-model="form.email" required autofocus />
             </div>
 
-            <div class="mt-4">
+            <div class="mt-4 flex flex-col sm:block">
                 <jet-label for="password" value="Password" />
                 <jet-input id="password" type="password" class="mt-1 block" v-model="form.password" required autocomplete="current-password" />
             </div>
 
-            <div class="flex items-center justify-center mt-12">
-                <primary-button class="mr-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+            <div class="flex items-center justify-center mt-4 flex-col sm:flex-row">
+                <primary-button class="mb-4 sm:mb-0 sm:mr-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                     Log in
                 </primary-button>
 

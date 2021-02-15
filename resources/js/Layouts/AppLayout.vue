@@ -6,6 +6,10 @@
                 <slot />
             </div>
         </div>
+        
+        <!-- Must be included to show model windows -->
+        <portal-target name="modal" multiple>
+        </portal-target>
     </content-container>
 </template>
 

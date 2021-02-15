@@ -18,7 +18,7 @@
                     Dashboard
                 </navbar-item>
             </li>
-            <li class="pl-12 pr-20 mb-2">
+            <li v-if="user.role === 'admin'" class="pl-12 pr-20 mb-2">
                 <navbar-item href="/users" class="flex">
                     <img src="/imgs/icons/loupe.svg" class="h-6 mr-4" />
                     Search
@@ -62,6 +62,9 @@ export default {
         logout() {
             this.$inertia.post(route('logout'));
         }
+    },
+    created() {
+        console.log(this.user)
     }
 }
 </script>

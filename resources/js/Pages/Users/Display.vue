@@ -37,6 +37,9 @@
         },
         created() {
             if (!this.user) window.location.href = "/users";
+        },
+        metaInfo: {
+            title: `Al&Bee - User display`
         }
     }
 </script>

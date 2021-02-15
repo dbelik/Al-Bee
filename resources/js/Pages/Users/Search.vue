@@ -19,7 +19,7 @@
                                 :style="'background: ' + (user.profile_photo_path ? 'url(/storage/' + user.profile_photo_path + ') center no-repeat, ' : '') + '#ebf4ff; background-size: cover;'"></div>
                             <span class="px-5 flex-1">{{ user.first_name }} {{ user.second_name }}</span>
                         </div>
-                        <a :href="'/users/' + user.id">View</a>
+                        <inertia-link :href="'/users/' + user.id">View</inertia-link>
                     </li>
                 </ul>
                 <span v-else>Can't find anyone</span>
@@ -59,6 +59,9 @@
                 const search = this.search.trim();
                 window.location.href = "/users?search=" + search;
             }
+        },
+        metaInfo: {
+            title: "Al&Bee - Search"
         }
     }
 </script>

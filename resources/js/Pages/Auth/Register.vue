@@ -6,37 +6,37 @@
             <jet-validation-errors class="mb-4" />
 
             <form @submit.prevent="submit">
-                <div>
+                <div class="flex flex-col sm:block">
                     <jet-label for="first_name" value="First name" />
                     <jet-input id="first_name" type="text" class="mt-1 block" v-model="form.first_name" required autofocus autocomplete="first_name" />
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 flex flex-col sm:block">
                     <jet-label for="second_name" value="Second name" />
                     <jet-input id="second_name" type="text" class="mt-1 block" v-model="form.second_name" required autocomplete="second_name" />
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 flex flex-col sm:block">
                     <jet-label for="third_name" value="Third name (optional)" />
                     <jet-input id="third_name" type="text" class="mt-1 block" v-model="form.third_name" autocomplete="third_name" />
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 flex flex-col sm:block">
                     <jet-label for="email" value="Email" />
                     <jet-input id="email" type="email" class="mt-1 block" v-model="form.email" required />
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 flex flex-col sm:block">
                     <jet-label for="password" value="Password" />
                     <jet-input id="password" type="password" class="mt-1 block" v-model="form.password" required autocomplete="new-password" />
                 </div>
 
-                <div class="mt-4">
+                <div class="mt-4 flex flex-col sm:block">
                     <jet-label for="password_confirmation" value="Confirm Password" />
                     <jet-input id="password_confirmation" type="password" class="mt-1 block" v-model="form.password_confirmation" required autocomplete="new-password" />
                 </div>
 
-                <div class="mt-4" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
+                <div class="mt-4 flex flex-col sm:block" v-if="$page.props.jetstream.hasTermsAndPrivacyPolicyFeature">
                     <jet-label for="terms">
                         <div class="flex items-center">
                             <jet-checkbox name="terms" id="terms" v-model="form.terms" />
@@ -48,8 +48,8 @@
                     </jet-label>
                 </div>
 
-                <div class="flex items-center justify-center mt-4">
-                    <primary-button class="mr-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
+                <div class="flex items-center justify-center mt-4 flex-col sm:flex-row">
+                    <primary-button class="mb-4 sm:mb-0 sm:mr-4" :class="{ 'opacity-25': form.processing }" :disabled="form.processing">
                         Register
                     </primary-button>
 

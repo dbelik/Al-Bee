@@ -1,7 +1,7 @@
 <template>
     <app-layout :user="user">
         <h2>Hi, {{ user.first_name }} {{ user.second_name }}!</h2>
-        <h3 v-if="user.role === 'admin'">Do you wan't to <primary-link href="/users">search for users</primary-link>?</h3>
+        <h3 v-if="user.role_id === 2">Do you wan't to <primary-link href="/users">search for users</primary-link>?</h3>
     </app-layout>
 </template>
 

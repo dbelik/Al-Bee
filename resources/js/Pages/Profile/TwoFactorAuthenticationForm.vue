@@ -61,24 +61,24 @@
 
                 <div v-else>
                     <jet-confirms-password @confirmed="regenerateRecoveryCodes">
-                        <jet-secondary-button class="mr-3"
+                        <secondary-button class="mr-3 mb-3"
                                         v-if="recoveryCodes.length > 0">
                             Regenerate Recovery Codes
-                        </jet-secondary-button>
+                        </secondary-button>
                     </jet-confirms-password>
 
                     <jet-confirms-password @confirmed="showRecoveryCodes">
-                        <jet-secondary-button class="mr-3" v-if="recoveryCodes.length === 0">
+                        <secondary-button class="mr-3" v-if="recoveryCodes.length === 0">
                             Show Recovery Codes
-                        </jet-secondary-button>
+                        </secondary-button>
                     </jet-confirms-password>
 
                     <jet-confirms-password @confirmed="disableTwoFactorAuthentication">
-                        <jet-danger-button
+                        <warning-button
                                         :class="{ 'opacity-25': disabling }"
                                         :disabled="disabling">
                             Disable
-                        </jet-danger-button>
+                        </warning-button>
                     </jet-confirms-password>
                 </div>
             </div>
@@ -94,6 +94,8 @@
     import JetSecondaryButton from '@/Jetstream/SecondaryButton'
     
     import PrimaryButton from '@/Components/Buttons/Primary'
+    import SecondaryButton from '@/Components/Buttons/Secondary'
+    import WarningButton from '@/Components/Buttons/Warning'
 
     export default {
         components: {
@@ -103,7 +105,9 @@
             JetDangerButton,
             JetSecondaryButton,
 
-            PrimaryButton
+            PrimaryButton,
+            SecondaryButton,
+            WarningButton
         },
 
         data() {

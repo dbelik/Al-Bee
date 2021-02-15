@@ -4,8 +4,8 @@
 
         <form v-on:submit="searchUsers" class="flex mt-6">
             <input v-model="search" class="w-full p-2" type="text" placeholder="Search users by their names..." autofocus value="hi">
-            <button v-on:click="searchUsers" class="p-2 outline-none border-none">
-                <img class="h-7" src="/imgs/icons/loupe.svg"/>
+            <button v-on:click="searchUsers" class="p-2 outline-none border-none" title="Search">
+                <img class="h-7" alt="Search" src="/imgs/icons/loupe.svg"/>
             </button>
         </form>
         
@@ -19,7 +19,9 @@
                                 :style="'background: ' + (user.profile_photo_path ? 'url(/storage/' + user.profile_photo_path + ') center no-repeat, ' : '') + '#ebf4ff; background-size: cover;'"></div>
                             <span class="px-5 flex-1">{{ user.first_name }} {{ user.second_name }}</span>
                         </div>
-                        <inertia-link :href="'/users/' + user.id">View</inertia-link>
+                        <inertia-link :href="'/users/' + user.id">
+                            <img src="/imgs/icons/eye.svg" alt="View this user" class="h-8 opacity-70 hover:opacity-100 focus:opacity-100 duration-100" />
+                        </inertia-link>
                     </li>
                 </ul>
                 <span v-else>Can't find anyone</span>

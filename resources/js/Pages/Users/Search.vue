@@ -12,15 +12,14 @@
         <div class="py-6">
             <div class="overflow-hidden">
                 <ul v-if="users.length > 0">
-                    <li v-for="user in users" class="bg-dark-blue-700 flex items-center justify-between my-5 px-8 py-4 rounded-3xl">
-                        <div class="flex items-center">
-                            <div 
-                                class="w-16 h-16 rounded-full" 
-                                :style="'background: ' + (user.profile_photo_path ? 'url(/storage/' + user.profile_photo_path + ') center no-repeat, ' : '') + '#ebf4ff; background-size: cover;'"></div>
-                            <span class="px-5 flex-1">{{ user.first_name }} {{ user.second_name }}</span>
-                        </div>
-                        <inertia-link :href="'/users/' + user.id">
-                            <img src="/imgs/icons/eye.svg" alt="View this user" class="h-8 opacity-70 hover:opacity-100 focus:opacity-100 duration-100" />
+                    <li v-for="user in users">
+                        <inertia-link class="bg-dark-blue-700 flex items-center justify-between my-5 px-8 py-4 rounded-3xl" :href="'/users/' + user.id" :title="`${user.first_name} ${user.second_name}`">
+                            <div class="flex items-center">
+                                <div 
+                                    class="w-16 h-16 rounded-full" 
+                                    :style="'background: ' + (user.profile_photo_path ? 'url(/storage/' + user.profile_photo_path + ') center no-repeat, ' : '') + '#ebf4ff; background-size: cover;'"></div>
+                                <span class="px-5 flex-1">{{ user.first_name }} {{ user.second_name }}</span>
+                            </div>
                         </inertia-link>
                     </li>
                 </ul>

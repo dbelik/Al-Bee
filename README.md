@@ -38,5 +38,8 @@ Seed the database by running ```php artisan db:seed```.
 ### Running
 Run ```npm run hot``` and ```php artisan serve```. Artisan will output the URL address where the website is running.
 
+### Assignment
+The project started in 09.02.2021 and took, approximately, 25 hours to complete.
+
 ## License
 Al&Bee uses [Apache License 2.0](./LICENSE)

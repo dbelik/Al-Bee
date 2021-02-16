@@ -33,6 +33,7 @@ Clone the project using ```git clone https://github.com/dbelik/Al-Bee.git```.
 Install packages via ```npm install``` and ```composer install```.
 Create database (in phpMyAdmin, if you use it) with name = ```DB_DATABASE```.
 Run ```php artisan migrate``` to run database migations.
+Seed the database by running ```php artisan db:seed```.
 
 ### Running
 Run ```npm run hot``` and ```php artisan serve```. Artisan will output the URL address where the website is running.
